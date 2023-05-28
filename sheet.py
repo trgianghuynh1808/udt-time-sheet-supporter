@@ -8,8 +8,8 @@ class SheetService:
         sheet_values = sheet.values()
         self.sheet_values = sheet_values
 
-    def readSheet(self):
-        result = self.sheet_values.get(spreadsheetId=SPREADSHEET_ID, range=RANGE_NAME).execute()
+    def readSheet(self, range):
+        result = self.sheet_values.get(spreadsheetId=SPREADSHEET_ID, range=range).execute()
         return result.get('values', [])
 
     def writeSheet(self, range, body_data):
